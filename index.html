@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Sidebar custom transition */
+        #sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #sidebar.open {
+            transform: translateX(0);
+        }
+        .video-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-overlay {
+  position: absolute;
+  left: 10%;
+  bottom: 15%;
+  color: white;
+  max-width: 400px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .025rem;
+  line-height: 1.75rem;
+  
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+}
+
+    </style>
+</head>
+
+<body class="relative bg-gray-100">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+        <div class="flex items-center justify-between px-4 py-6 lg:px-8">
+            <!-- Left: Menu & Search -->
+            <div class="flex items-center gap-4">
+                <button id="menu-btn" class="lg:hidden text-sm">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <button id="menu-btn" class="hidden lg:block ml-4 text-sm">
+                    <i class="fa-solid fa-bars text-gray-500"></i> Menu
+                </button>
+
+                <div class="flex justify-start items-cente gap-3">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                    <button class=" text-sm">Search</button>
+                </div>
+            </div>
+
+            <!-- Middle: Logo or Image -->
+            <div class="flex justify-center">
+                <svg width="151" height="16" viewBox="0 0 151 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path
+                        d="M67.637.293l3.816 9.205L75.269.293h2.725L71.746 15.39l-.293.294-.294-.294L64.911.293h2.726zm-13.712 0c1.468 0 2.86.767 3.627 1.887l-1.467 1.468h-.462c-.304-.65-.973-1.048-1.698-1.048-.863 0-1.672.71-1.72 1.614-.035.68.277 1.105.84 1.468.606.391.854.554 1.677 1.006.897.493 3.166 1.46 3.166 4.005 0 2.509-2.097 4.843-4.802 4.843-.347 0-.976-.039-1.446-.147-1.325-.321-2.129-.822-2.998-1.845l1.887-1.929.65.545c.293.23.937.693 1.55.776 1.246.169 2.082-.655 2.244-1.468.129-.642-.034-1.6-1.069-2.096 0 0-1.866-1.037-2.684-1.51-.833-.482-1.719-1.798-1.719-3.375 0-1.174.538-2.311 1.405-3.103.67-.614 1.589-1.09 3.019-1.09zM138.67 0l9.77 9.77V.587l.294-.294h1.929l.294.294v14.802h-.462l-9.602-9.602v9.309l-.294.293h-1.929l-.293-.293V.293L138.67 0zm-28.807.293v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zm9.225 0v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zM2.516.293v12.58h5.032v2.516H0V.587L.293.293h2.223zm14.257 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm111.54 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm-98.415 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.929l.293.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zm37.446 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.928l.294.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zM16.772 2.81a5.032 5.032 0 10.001 10.065 5.032 5.032 0 000-10.065zm111.541 0a5.032 5.032 0 100 10.065 5.032 5.032 0 000-10.065z"
+                        fill-rule="evenodd"></path>
+                </svg>
+            </div>
+
+            <!-- Right: User Icon -->
+            <div class="flex items-center space-x-4">
+                <button class="hidden lg:block text-sm">Call Us</button>
+                <button>
+                    <i class="far fa-heart text-sm"></i>
+                </button>
+                <button>
+                    <i class="far fa-user text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 lg:hidden">
+        <div class="flex justify-between items-center p-4 border-b">
+            <span class="font-bold text-lg">Menu</span>
+            <button id="close-btn" class="text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-4">
+                <li><a href="#" class="block text-gray-700 hover:text-blue-500">Link 1</a></li>
+                <li><a href="#" class="block text-gray-700 hover:text-blue-500">Link 2</a></li>
+                <li><a href="#" class="block text-gray-700 hover:text-blue-500">Link 3</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="mt-16">
+        <section class="relative">
+            <!-- Fullscreen Video -->
+            <div class="w-full  h-[100vh] overflow-hidden">
+                <video playsinline=""
+                    src="video\EGhuDp74IiZrfahKnNc0mD26_5.mp4"
+                    muted="muted" loop="loop" tabindex="-1" aria-hidden="true" autoplay="true" class="w-full "></video>
+            </div>
+
+            <!-- Image Grid -->
+            <div class=" bg-white">
+                <div class="grid grid-cols-2 lg:grid-cols-4">
+                    <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
+                        <img src="image/img1.png" alt="Imagination" class="mx-auto">
+                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <h2 class="font-semibold ps-4">Imagination</h2>
+                    </div>
+                    
+                    <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
+                        <img src="image\img1.png" alt="Imagination" class="mx-auto">
+                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <h2 class="font-semibold ps-4">Imagination</h2>
+                    </div>
+                    <div class="text-start hidden lg:block bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
+                        <img src="image\img1.png" alt="Ombre Nomade" class="mx-auto">
+                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <h2 class="font-semibold ps-4">Ombre Nomade</h2>
+                    </div>
+                    <div class="text-start hidden lg:block bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
+                        <img src="image\img1.png" alt="L'Immensité" class="mx-auto">
+                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <h2 class="font-semibold ps-4">L'Immensité</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="video-container relative w-full h-screen">
+            <!-- Video Background -->
+            <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+              <source src="video\EGhuDp74IiZrfahKnNc0mD26_5.mp4" type="video/mp4" />
+              
+            </video>
+          
+            <!-- Text Overlay -->
+            <div class="text-overlay absolute left-10 bottom-10 text-white max-w-sm">
+              <h2 class="text-xl font-semibold">Louis Vuitton Perfumes x Murakami</h2>
+              <p class="mt-4 text-normal text-[rgb(0, 0, 0)]">
+                The House's iconic fragrances, Attrape-Rêves and Imagination, are reimagined for the Louis Vuitton x Murakami re-edition collection with a whimsical new design — enveloped in Takashi Murakami's chromatic signatures. Embodying each captivating olfactory essence, vibrant illustrations adorn the bottles while a vibrant Monogram punctuates a leather travel case for truly unique pieces.
+              </p>
+            </div>
+          </div>
+          
+          
+    </main>
+    <footer class="bg-white border-t border-gray-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Top Section -->
+            <div class="text-center mb-8">
+                <button class="border border-black px-6 py-2 text-sm font-medium hover:bg-gray-200 transition">
+                    View More
+                </button>
+                <h2 class="mt-4 text-lg font-semibold">More</h2>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+                <!-- Help -->
+                <div>
+                    <h3 class="font-semibold mb-4">Help</h3>
+                    <ul>
+                        <li class="mb-2"><a href="#" class="hover:underline">You can call or email us</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">FAQ's</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">Product Care</a></li>
+                        <li><a href="#" class="hover:underline">Stores</a></li>
+                    </ul>
+                </div>
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-4">Services</h3>
+                    <ul>
+                        <li class="mb-2"><a href="#" class="hover:underline">Repairs</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">Personalization</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">Art of Gifting</a></li>
+                        <li><a href="#" class="hover:underline">Download our Apps</a></li>
+                    </ul>
+                </div>
+                <!-- About -->
+                <div>
+                    <h3 class="font-semibold mb-4">About Louis Vuitton</h3>
+                    <ul>
+                        <li class="mb-2"><a href="#" class="hover:underline">Fashion Shows</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">Arts & Culture</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">La Maison</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">Sustainability</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">Latest News</a></li>
+                        <li class="mb-2"><a href="#" class="hover:underline">Careers</a></li>
+                        <li><a href="#" class="hover:underline">Foundation Louis Vuitton</a></li>
+                    </ul>
+                </div>
+                <!-- Email Sign-Up -->
+                <div>
+                    <h3 class="font-semibold mb-4">Email Sign-Up</h3>
+                    <p class="mb-4">
+                        Sign up for Louis Vuitton emails and receive the latest news from the Maison, including
+                        exclusive online pre-launches and new collections.
+                    </p>
+                    <a href="#" class="hover:underline">Follow Us</a>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="mt-8 flex flex-col md:flex-row items-center justify-between text-gray-600 text-xs">
+                <a href="#" class="mb-4 md:mb-0 hover:underline">English (Intl)</a>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:underline">Sitemap</a>
+                    <a href="#" class="hover:underline">Legal & Privacy</a>
+                    <a href="#" class="hover:underline">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const menuBtn = document.querySelectorAll('#menu-btn'); // Select all menu buttons
+        const closeBtn = document.getElementById('close-btn');
+        const sidebar = document.getElementById('sidebar');
+
+        menuBtn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('open');
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+        });
+
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                sidebar.classList.remove('open'); // Keep the sidebar visible for larger screens
+            }
+        });
+    </script>
+
+</body>
+
+</html>
