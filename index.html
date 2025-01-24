@@ -7,6 +7,7 @@
     <title>Luice vuittion</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="image/favicon.ico" />
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -42,9 +43,8 @@
             line-height: 1.75rem;
 
         }
-        .rightsidebarOpen{
 
-        }
+        .rightsidebarOpen {}
 
         p {
             margin-top: 1rem;
@@ -102,15 +102,15 @@
                 </button>
             </div>
             <div>
-                <button 
+                <button
                     class="flex items-center gap-2 border rounded-full px-4 py-2 text-black font-medium hover:text-black focus:outline-none text-sm">
-                    Filter <img src="image\filter.png" class="w-4 h-4"/>
+                    Filter <img src="image\filter.png" class="w-4 h-4" />
                 </button>
             </div>
         </div>
 
         <!-- Sidebar -->
-   
+
     </header>
 
 
@@ -138,29 +138,35 @@
             <!-- Fullscreen Video -->
             <div class="w-full  overflow-hidden">
                 <video playsinline="" src="video\EGhuDp74IiZrfahKnNc0mD26_5.mp4" muted="muted" loop="loop" tabindex="-1"
-                    aria-hidden="true" autoplay="true" class="w-full "></video>
+                    aria-hidden="true" autoplay="true" class="aspect-video w-full object-cover"></video>
             </div>
 
 
             <div class=" bg-white">
                 <div class="grid grid-cols-2 lg:grid-cols-4">
-                    <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
+                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image/img1.png" alt="Imagination" class="mx-auto">
                         <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold ps-4">Imagination</h2>
                     </div>
 
-                    <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
+                    <!-- <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
                         <img src="image\img1.png" alt="Imagination" class="mx-auto">
                         <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold ps-4">Imagination</h2>
+                    </div> -->
+                    <div class="text-start bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9] ">
+                        <img src="image/img1.png" alt="Imagination" class="mx-auto">
+                        <p class="text-gray-600 text-sm mt-2">Personalizable & refillable</p>
+                        <h2 class="font-semibold text-lg mt-1">Imagination</h2>
                     </div>
-                    <div class="text-start  bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
+                    
+                    <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image\img1.png" alt="Ombre Nomade" class="mx-auto">
                         <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold ps-4">Ombre Nomade</h2>
                     </div>
-                    <div class="text-start  bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
+                    <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image\img1.png" alt="L'Immensité" class="mx-auto">
                         <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold ps-4">L'Immensité</h2>
@@ -187,80 +193,122 @@
             </div>
         </div>
 
+        <section class="w-full ">
+
+            <div class=" h-screen bg-cover bg-center relative"
+                style="background-image: url('https://www.louisvuitton.com/images/is/image/lv/PERFUMES_FRAGRANCE_WOF__ANIMATION.jpg?wid=2400');">
+                <div class="absolute bottom-6 z-10 max-w-lg px-8 py-12 text-white lg:py-24 ">
+                    <h2 class="text-sm font-semibold">Travel Collection</h2>
+                    <p class="mt-4 text-sm leading-6  sm:leading-7">
+                        In creating the Fragrance Travel Cases and Travel Sprays, Louis Vuitton perpetuates its
+                        savoir-faire and mastery in custom-designing the perfect objects to accompany travelers on all
+                        their journeys. Ergonomic and elegant, these objects are perfect companions to enjoy your
+                        perfume at any time.
+                    </p>
+                </div>
+            </div>
+
+
+        </section>
+
 
     </main>
     <footer class="bg-white border-t border-gray-200 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       
-            <div class="text-center mb-8">
-                <button class="border border-black px-6 py-2 text-sm font-medium hover:bg-gray-200 transition">
-                    View More
-                </button>
-               
+        <div class="w-full  pb-8 border-gray-200 flex justify-center border-b">
+            <button class="border border-black rounded-full w-48 py-3 text-sm font-medium hover:bg-gray-200 transition">
+                View More
+            </button>
+        </div>
+
+        <footer class="footer">
+            <div class=" border-b py-7 w-full   items-cente">
+                <div class="max-w-[100rem] mx-auto">
+                    <a href="#" class="underline">Louis Vuitton</a> -
+                    <a href="#" class="underline">Perfumes - Collections</a> -
+                    <a href="#">All Perfumes</a>
+                </div>
+
             </div>
 
-            <!-- Footer Links -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
-                <!-- Help -->
+            <div class="grid grid-cols-4 max-w-[100rem] mx-auto gap-8  py-12 text-sm text-gray-800">
+                <!-- Help Section -->
                 <div>
-                    <h3 class="font-semibold mb-4">Help</h3>
-                    <ul>
-                        <li class="mb-2"><a href="#" class="hover:underline">You can call or email us</a></li>
-                        <li class="mb-2"><a href="#" class="hover:underline">FAQ's</a></li>
-                        <li class="mb-2"><a href="#" class="hover:underline">Product Care</a></li>
+                    <h3 class="font-semibold uppercase text-gray-500 mb-4">Help</h3>
+                    <ul class="space-y-5">
+                        <li>You can <a href="#" class="underline">call</a> or <a href="#" class="underline">email
+                                us</a>.</li>
+                        <li><a href="#" class="hover:underline">FAQ's</a></li>
+                        <li><a href="#" class="hover:underline">Product Care</a></li>
                         <li><a href="#" class="hover:underline">Stores</a></li>
                     </ul>
                 </div>
-                < <div>
-                    <h3 class="font-semibold mb-4">Services</h3>
-                    <ul>
-                        <li class="mb-2"><a href="#" class="hover:underline">Repairs</a></li>
-                        <li class="mb-2"><a href="#" class="hover:underline">Personalization</a></li>
-                        <li class="mb-2"><a href="#" class="hover:underline">Art of Gifting</a></li>
+
+                <!-- Services Section -->
+                <div>
+                    <h3 class="font-semibold uppercase text-gray-500 mb-4">Services</h3>
+                    <ul class="space-y-5">
+                        <li><a href="#" class="hover:underline">Repairs</a></li>
+                        <li><a href="#" class="hover:underline">Personalization</a></li>
+                        <li><a href="#" class="hover:underline">Art of Gifting</a></li>
                         <li><a href="#" class="hover:underline">Download our Apps</a></li>
                     </ul>
+                </div>
+
+                <!-- About Louis Vuitton Section -->
+                <div>
+                    <h3 class="font-semibold uppercase text-gray-500 mb-4">About Louis Vuitton</h3>
+                    <ul class="space-y-5">
+                        <li><a href="#" class="hover:underline">Fashion Shows</a></li>
+                        <li><a href="#" class="hover:underline">Arts & Culture</a></li>
+                        <li><a href="#" class="hover:underline">La Maison</a></li>
+                        <li><a href="#" class="hover:underline">Sustainability</a></li>
+                        <li><a href="#" class="hover:underline">Latest News</a></li>
+                        <li><a href="#" class="hover:underline">Careers</a></li>
+                        <li><a href="#" class="hover:underline">Foundation Louis Vuitton</a></li>
+                    </ul>
+                </div>
+
+                <!-- Email Sign-Up Section -->
+                <div>
+                    <h3 class=" uppercase text-gray-500 mb-4">Email Sign-Up</h3>
+                    <p class="mb-4 font-semibold text-sm text-gray-500">Sign up for <a href="#" class="underline">Louis
+                            Vuitton emails</a> and receive
+                        the latest news from the Maison, including exclusive online pre-launches and new
+                        collections.</p>
+                    <ul class="space-y-5">
+                        <li><a href="#" class="hover:underline">Follow Us</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div>
-                <h3 class="font-semibold mb-4">About Louis Vuitton</h3>
-                <ul>
-                    <li class="mb-2"><a href="#" class="hover:underline">Fashion Shows</a></li>
-                    <li class="mb-2"><a href="#" class="hover:underline">Arts & Culture</a></li>
-                    <li class="mb-2"><a href="#" class="hover:underline">La Maison</a></li>
-                    <li class="mb-2"><a href="#" class="hover:underline">Sustainability</a></li>
-                    <li class="mb-2"><a href="#" class="hover:underline">Latest News</a></li>
-                    <li class="mb-2"><a href="#" class="hover:underline">Careers</a></li>
-                    <li><a href="#" class="hover:underline">Foundation Louis Vuitton</a></li>
-                </ul>
+            <div class="border-t py-8 w-full">
+                <div class="flex justify-between items-cente max-w-[100rem] mx-auto">
+                    <a href="#"
+                        class="language text-sm text-gray-500 underline flex justify-start items-center gap-1"><i
+                            class="fa-solid fa-globe"></i>ENGLISH (INTL)</a>
+                    <div class="legal-links flex justify-between items-cente">
+                        <a href="#">Sitemap</a>
+                        <a href="#">Legal & Privacy</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <h3 class="font-semibold mb-4">Email Sign-Up</h3>
-                <p class="mb-4">
-                    Sign up for Louis Vuitton emails and receive the latest news from the Maison, including
-                    exclusive online pre-launches and new collections.
-                </p>
-                <a href="#" class="hover:underline">Follow Us</a>
+            <div class="max-w-[100rem] mx-auto flex justify-center items-cente py-6">
+                <svg width="151" height="16" viewBox="0 0 151 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path
+                        d="M67.637.293l3.816 9.205L75.269.293h2.725L71.746 15.39l-.293.294-.294-.294L64.911.293h2.726zm-13.712 0c1.468 0 2.86.767 3.627 1.887l-1.467 1.468h-.462c-.304-.65-.973-1.048-1.698-1.048-.863 0-1.672.71-1.72 1.614-.035.68.277 1.105.84 1.468.606.391.854.554 1.677 1.006.897.493 3.166 1.46 3.166 4.005 0 2.509-2.097 4.843-4.802 4.843-.347 0-.976-.039-1.446-.147-1.325-.321-2.129-.822-2.998-1.845l1.887-1.929.65.545c.293.23.937.693 1.55.776 1.246.169 2.082-.655 2.244-1.468.129-.642-.034-1.6-1.069-2.096 0 0-1.866-1.037-2.684-1.51-.833-.482-1.719-1.798-1.719-3.375 0-1.174.538-2.311 1.405-3.103.67-.614 1.589-1.09 3.019-1.09zM138.67 0l9.77 9.77V.587l.294-.294h1.929l.294.294v14.802h-.462l-9.602-9.602v9.309l-.294.293h-1.929l-.293-.293V.293L138.67 0zm-28.807.293v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zm9.225 0v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zM2.516.293v12.58h5.032v2.516H0V.587L.293.293h2.223zm14.257 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm111.54 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm-98.415 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.929l.293.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zm37.446 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.928l.294.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zM16.772 2.81a5.032 5.032 0 10.001 10.065 5.032 5.032 0 000-10.065zm111.541 0a5.032 5.032 0 100 10.065 5.032 5.032 0 000-10.065z"
+                        fill-rule="evenodd"></path>
+                </svg>
             </div>
-        </div>
-
-
-        <div class="mt-8 flex flex-col md:flex-row items-center justify-between text-gray-600 text-xs">
-            <a href="#" class="mb-4 md:mb-0 hover:underline">English (Intl)</a>
-            <div class="flex space-x-4">
-                <a href="#" class="hover:underline">Sitemap</a>
-                <a href="#" class="hover:underline">Legal & Privacy</a>
-                <a href="#" class="hover:underline">Cookies</a>
-            </div>
-        </div>
-        </div>
+        </footer>
     </footer>
 
     <script>
         const menuBtn = document.querySelectorAll('#menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const sidebar = document.getElementById('sidebar');
-    
+
 
         // Open Sidebar
 
@@ -281,7 +329,7 @@
             }
         });
 
-   
+
     </script>
 
 </body>
