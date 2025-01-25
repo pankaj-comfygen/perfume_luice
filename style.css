@@ -1,8 +1,122 @@
 body {
   font-family: "Louis Vuitton Web", "Louis Vuitton Web Fallback", "Helvetica Neue", "Helvetica", Arial, sans-serif;
   color: #000000;
-  font-size: '14px';
+  font-size: 10px;
+  font-weight: 100; /* Use 100 for the thinnest weight */
+  letter-spacing: 0.5px; /* Optional: Add slight letter spacing for a lighter feel */
+}
 
+
+#sidebar {
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar li {
+  padding-left: 12px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Dimming Other List Items */
+#sidebar li:hover ~ li,
+#sidebar li:hover ~ li + li {
+    color: gray; 
+}
+
+/* Underline Animation */
+#sidebar li span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+}
+#sidebar li span {
+  position: relative; /* Position for the underline */
+  display: inline-block; /* Ensures the underline matches text width */
+}
+#sidebar li:hover span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Arrow Icon Styling */
+.arrow-icon {
+  font-size: 16px;
+  color: transparent; 
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#sidebar li:hover .arrow-icon {
+  color: black; /* Make visible on hover */
+  transform: translateX(5px); /* Smoothly move to the right */
+}
+
+#sidebar.open {
+  width: 400px;
+  transform: translateY(0);
+}
+
+#overlay {
+  backdrop-filter: blur(5px);
+  transition: opacity 0.2s ease-in-out;
+  background-color: black/20;
+}
+
+#overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-overlay {
+  position: absolute;
+  left: 10%;
+  bottom: 15%;
+  color: white;
+  max-width: 400px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: .025rem;
+  line-height: 1.75rem;
+
+}
+p {
+  margin-top: 1rem;
+  font-size: 1.125rem;
 }
 
 /* Hide footer on screens smaller than 1024px */

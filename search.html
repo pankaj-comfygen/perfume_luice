@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="overflow-hidden">
+  <div id="search-page" class="fixed top-[-100%] left-0 w-full h-full bg-white z-50 transform transition-transform duration-500 ease-in-out">
+    <div class="flex justify-between items-center p-4 border-b">
+      <h2 class="text-lg font-medium">Search</h2>
+      <button id="close-page" class="text-xl">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="p-4">
+      <p class="text-sm text-gray-600">Search functionality goes here...</p>
+    </div>
+  </div>
+
+  <script>
+    // Smooth transition for page load
+    window.addEventListener('load', () => {
+      const page = document.getElementById('search-page');
+      page.style.transform = 'translateY(0)';
+    });
+
+    // Close button (optional: navigate back)
+    document.getElementById('close-page').addEventListener('click', () => {
+      window.history.back();
+    });
+  </script>
+</body>
+</html>

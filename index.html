@@ -12,63 +12,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Sidebar custom transition */
-        #sidebar {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
-        }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-        #sidebar.open {
-            transform: translateX(0);
-        }
 
-        .video-container {
-            position: relative;
-            overflow: hidden;
-        }
 
-        .text-overlay {
-            position: absolute;
-            left: 10%;
-            bottom: 15%;
-            color: white;
-            max-width: 400px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: .025rem;
-            line-height: 1.75rem;
-
-        }
-
-        .rightsidebarOpen {}
-
-        p {
-            margin-top: 1rem;
-            font-size: 1.125rem;
-        }
-    </style>
 </head>
 
-<body class="relative bg-gray-100 " >
+<body class="relative bg-gray-100 ">
 
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
         <div class="flex items-center justify-between px-4 py-6 lg:px-8 border-b">
 
             <div class="flex items-center gap-5">
                 <button id="menu-btn" class="lg:hidden text-sm">
-                    <i class="fas fa-bars"></i>
+                    <i class="bi bi-list text-lg"></i>
                 </button>
-                <button id="menu-btn" class="hidden lg:block ml-4 text-sm">
-                    <i class="fa-solid fa-bars text-gray-500 pe-2"></i> Menu
+                <button id="menu-btn" class=" ml-4 text-sm flex justify-start items-center gap-3">
+                    <i class="bi bi-list text-xl"></i> Menu
                 </button>
 
-                <div class="flex justify-start items-cente gap-3 ">
-                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
-                    <button class="text-sm md:block hidden">Search</button>
+                <div class="flex justify-start items-center gap-3">
+                    <i id="search-icon" class="fa-solid fa-magnifying-glass text-sm cursor-pointer"></i>
+                    <button id="search-btn" class="text-sm md:block hidden">Search</button>
                 </div>
             </div>
 
@@ -112,24 +77,166 @@
 
     </header>
 
+    <!-- search modal -->
+
+    <div id="search-modal"
+        class="fixed top-0 left-0 w-full h-full bg-white shadow-lg z-50 transform -translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="flex justify-between items-center p-4 ">
+            <div class="flex justify-center w-full">
+                <svg width="220" height="30" viewBox="0 0 151 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path
+                        d="M67.637.293l3.816 9.205L75.269.293h2.725L71.746 15.39l-.293.294-.294-.294L64.911.293h2.726zm-13.712 0c1.468 0 2.86.767 3.627 1.887l-1.467 1.468h-.462c-.304-.65-.973-1.048-1.698-1.048-.863 0-1.672.71-1.72 1.614-.035.68.277 1.105.84 1.468.606.391.854.554 1.677 1.006.897.493 3.166 1.46 3.166 4.005 0 2.509-2.097 4.843-4.802 4.843-.347 0-.976-.039-1.446-.147-1.325-.321-2.129-.822-2.998-1.845l1.887-1.929.65.545c.293.23.937.693 1.55.776 1.246.169 2.082-.655 2.244-1.468.129-.642-.034-1.6-1.069-2.096 0 0-1.866-1.037-2.684-1.51-.833-.482-1.719-1.798-1.719-3.375 0-1.174.538-2.311 1.405-3.103.67-.614 1.589-1.09 3.019-1.09zM138.67 0l9.77 9.77V.587l.294-.294h1.929l.294.294v14.802h-.462l-9.602-9.602v9.309l-.294.293h-1.929l-.293-.293V.293L138.67 0zm-28.807.293v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zm9.225 0v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zM2.516.293v12.58h5.032v2.516H0V.587L.293.293h2.223zm14.257 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm111.54 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm-98.415 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.929l.293.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zm37.446 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.928l.294.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zM16.772 2.81a5.032 5.032 0 10.001 10.065 5.032 5.032 0 000-10.065zm111.541 0a5.032 5.032 0 100 10.065 5.032 5.032 0 000-10.065z"
+                        fill-rule="evenodd"></path>
+                </svg>
+            </div>
+
+            <button id="close-modal" class="text-xl">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+      
+            <section class="">
+              
+                <div class="relative mb-6 max-w-[65%] mx-auto">
+                    <input type="text" placeholder="Search for a store"
+                        class="w-full px-6 py-4 text-[13px] border border-gray-400 rounded-full text-[#767676] focus:outline-none focus:ring-2 focus:ring-black" />
+                    <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-blcak text-[12px]">
+                        Clear
+                    </button>
+                </div>
+
+                <!-- Trending Searches -->
+                <div class="flex justify-center space-x-4    mb-8">
+                    <span class="text-[#767676] uppercase text-[0.625rem]">Trending searches</span>
+                    <a href="#" class="hover:underline text-[0.625rem] ">wallet</a>
+                    <a href="#" class="hover:underline text-[0.625rem]">neverfull</a>
+                    <a href="#" class="hover:underline text-[0.625rem]">speedy</a>
+                    <a href="#" class="hover:underline text-[0.625rem]">pochette</a>
+                    <a href="#" class="hover:underline text-[0.625rem]">murakami</a>
+                </div>
+
+                <h2 class="text-[1.125rem] max-w-[95%] pb-3 mx-auto">Neverfull Inside Out </h2>
+                <!-- Product List -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
+                   
+                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">New Reversible Neverfull</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">Neverfull Bandoulière Inside Out MM</div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>
+                    <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>  <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>  <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px] "></i>
+                        </button>
+                    </div>  <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>
+                    <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>
+                  
+                </div>
+            </section>
+
+    </div>
+
 
     <!-- Sidebar -->
-    <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 ">
-        <div class="flex justify-between items-center p-4 border-b">
-            <button id="close-btn" class="text-xl">
-                <i class="fas fa-times"></i>
+    <aside id="sidebar"
+        class="fixed top-0 left-0 h-full w-0 bg-white shadow-lg z-50 transform -translate-y-full transition-all duration-500 ease-in-out">
+        <div class="flex justify-start gap-3 items-center p-7 ">
+            <button id="close-btn" class="text-sm">
+                <i class="bi bi-x-lg"></i>
             </button>
-            <span class="font-bold text-lg">Menu</span>
-
+            <span class=" text-sm">Close</span>
         </div>
         <nav class="p-4">
             <ul class="space-y-4">
-                <li><a href="#" class="block text-gray-700 hover:text-blue-500">Link 1</a></li>
-                <li><a href="#" class="block text-gray-700 hover:text-blue-500">Link 2</a></li>
-                <li><a href="#" class="block text-gray-700 hover:text-blue-500">Link 3</a></li>
+                <li class="group relative">
+                    <span>Gifts</span> <i class="bi bi-chevron-right arrow-icon"></i>
+
+                </li>
+                <li class="group relative">
+                    <span>New</span> <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    <span>Bags and Small Leather Goods</span> <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    <span>Women</span> <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    <span>Men</span> <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    <span>Gifts</span> <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    <span>New</span> <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    Bags and Small Leather Goods <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    Women <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    Men <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    Gifts <i class="bi bi-chevron-right arrow-icon"></i>
+
+                </li>
+                <li class="group relative">
+                    New <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    Bags and Small Leather Goods <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    Women <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+                <li class="group relative">
+                    Men <i class="bi bi-chevron-right arrow-icon"></i>
+                </li>
+
             </ul>
         </nav>
+
     </aside>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-30 hidden z-40"></div>
 
     <!-- Main Content -->
     <main class="mt-16">
@@ -138,7 +245,7 @@
             <div class="w-full  overflow-hidden">
                 <!-- <video playsinline="" src="video\EGhuDp74IiZrfahKnNc0mD26_5.mp4" muted="muted" loop="loop" tabindex="-1"
                     aria-hidden="true" autoplay="true" class="aspect-video w-full object-cover"></video> -->
-                    <img src="image\PERFUMES_FRAGRANCE_WOF_DI3.webp" alt="her_img"/>
+                <img src="image\PERFUMES_FRAGRANCE_WOF_DI3.webp" alt="her_img" />
             </div>
 
 
@@ -146,32 +253,32 @@
                 <div class="grid grid-cols-2 lg:grid-cols-4">
                     <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image/img1.png" alt="Imagination" class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold text-sm ps-4">Imagination</h2>
                     </div>
 
                     <!-- <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
                         <img src="image\img1.png" alt="Imagination" class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold ps-4">Imagination</h2>
                     </div> -->
                     <div class="text-start bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9] ">
                         <img src="image/louis-vuitton-imagination--LP0219_PM2_Front view.avif" alt="Imagination"
                             class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold text-sm mt-1 ps-4">Imagination</h2>
                     </div>
 
                     <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image/louis-vuitton-ombre-nomade--LP0095_PM2_Front view.avif" alt="Ombre Nomade"
                             class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold text-sm ps-4">Ombre Nomade</h2>
                     </div>
                     <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image/louis-vuitton-l-immensité--LP0052_PM2_Front view.avif" alt="L'Immensité"
                             class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold text-sm ps-4">L'Immensité</h2>
                     </div>
                 </div>
@@ -201,32 +308,32 @@
                 <div class="grid grid-cols-2 lg:grid-cols-4">
                     <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image/img1.png" alt="Imagination" class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold text-sm ps-4">Imagination</h2>
                     </div>
 
                     <!-- <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
                         <img src="image\img1.png" alt="Imagination" class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold ps-4">Imagination</h2>
                     </div> -->
                     <div class="text-start bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9] ">
                         <img src="image/louis-vuitton-imagination--LP0219_PM2_Front view.avif" alt="Imagination"
                             class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold text-sm mt-1 ps-4">Imagination</h2>
                     </div>
 
                     <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image/louis-vuitton-ombre-nomade--LP0095_PM2_Front view.avif" alt="Ombre Nomade"
                             class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold text-sm ps-4">Ombre Nomade</h2>
                     </div>
                     <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
                         <img src="image/louis-vuitton-l-immensité--LP0052_PM2_Front view.avif" alt="L'Immensité"
                             class="mx-auto">
-                        <p class="text-gray-600 text-sm mt-2 ps-4">Personalizable & refillable</p>
+                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
                         <h2 class="font-semibold text-sm ps-4">L'Immensité</h2>
                     </div>
                 </div>
@@ -415,18 +522,26 @@
     </footer>
 
     <script>
-        const menuBtn = document.querySelectorAll('#menu-btn');
+        const menuBtns = document.querySelectorAll('#menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
 
-        menuBtn.forEach(btn => {
+        menuBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                sidebar.classList.toggle('open');
+                sidebar.classList.add('open');
+                overlay.classList.add('show');
             });
         });
 
         closeBtn.addEventListener('click', () => {
             sidebar.classList.remove('open');
+            overlay.classList.remove('show');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('show');
         });
 
         window.addEventListener('resize', () => {
@@ -451,6 +566,29 @@
         }
 
 
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchIcon = document.getElementById("search-icon");
+            const searchBtn = document.getElementById("search-btn");
+            const modal = document.getElementById("search-modal");
+            const closeModal = document.getElementById("close-modal");
+
+            // Open modal on search icon or text click
+            const openModal = () => {
+                modal.classList.remove("-translate-y-full");
+                modal.classList.add("translate-y-0");
+            };
+
+            // Close modal on close button click
+            const closeModalHandler = () => {
+                modal.classList.remove("translate-y-0");
+                modal.classList.add("-translate-y-full");
+            };
+
+            // Add event listeners
+            searchIcon.addEventListener("click", openModal);
+            searchBtn.addEventListener("click", openModal);
+            closeModal.addEventListener("click", closeModalHandler);
+        });
 
 
     </script>
