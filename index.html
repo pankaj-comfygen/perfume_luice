@@ -53,18 +53,17 @@
     </style>
 </head>
 
-<body class="relative bg-gray-100 " style="font-family: ' Arial, sans-serif'">
+<body class="relative bg-gray-100 " >
 
-    <!-- Header -->
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
         <div class="flex items-center justify-between px-4 py-6 lg:px-8 border-b">
-            <!-- Left: Menu & Search -->
-            <div class="flex items-center gap-4">
+
+            <div class="flex items-center gap-5">
                 <button id="menu-btn" class="lg:hidden text-sm">
                     <i class="fas fa-bars"></i>
                 </button>
                 <button id="menu-btn" class="hidden lg:block ml-4 text-sm">
-                    <i class="fa-solid fa-bars text-gray-500"></i> Menu
+                    <i class="fa-solid fa-bars text-gray-500 pe-2"></i> Menu
                 </button>
 
                 <div class="flex justify-start items-cente gap-3 ">
@@ -137,8 +136,9 @@
         <section class="relative">
             <!-- Fullscreen Video -->
             <div class="w-full  overflow-hidden">
-                <video playsinline="" src="video\EGhuDp74IiZrfahKnNc0mD26_5.mp4" muted="muted" loop="loop" tabindex="-1"
-                    aria-hidden="true" autoplay="true" class="aspect-video w-full object-cover"></video>
+                <!-- <video playsinline="" src="video\EGhuDp74IiZrfahKnNc0mD26_5.mp4" muted="muted" loop="loop" tabindex="-1"
+                    aria-hidden="true" autoplay="true" class="aspect-video w-full object-cover"></video> -->
+                    <img src="image\PERFUMES_FRAGRANCE_WOF_DI3.webp" alt="her_img"/>
             </div>
 
 
@@ -262,7 +262,7 @@
 
         <footer class="footer">
             <div class=" border-b py-7 w-full   items-cente">
-                <div class="max-w-7xl mx-auto md:px-0 px-4">
+                <div class="max-w-[90%] mx-auto md:px-0 px-4">
                     <a href="#" class="underline">Louis Vuitton</a> -
                     <a href="#" class="underline">Perfumes - Collections</a> -
                     <a href="#">All Perfumes</a>
@@ -270,7 +270,7 @@
 
             </div>
             <div class="hidden md:block">
-                <div class="grid grid-cols-4  md:max-w-[80%] mx-auto gap-8  py-12 text-sm text-gray-800 footer-respo">
+                <div class="grid grid-cols-4  md:max-w-[90%] mx-auto gap-8  py-12 text-sm text-gray-800 footer-respo">
                     <div>
                         <h3 class="font-semibold uppercase text-gray-500 mb-4">Help</h3>
                         <ul class="space-y-5">
@@ -318,7 +318,7 @@
 
 
 
-            <div class="w-[85%] md:max-w-[80%] mx-auto  py-4 text-sm block md:hidden ">
+            <div class="w-[85%] md:max-w-[90%] mx-auto  py-4 text-sm block md:hidden ">
                 <div class="border-b">
                     <div class="flex justify-between items-center cursor-pointer group"
                         onclick="toggleDropdown('help', 'help-icon')">
@@ -392,7 +392,7 @@
 
 
             <div class="border-t py-8 w-full">
-                <div class="flex justify-between items-cente max-w-7xl mx-auto md:px-0 px-4">
+                <div class="flex justify-between items-cente max-w-[90%] mx-auto md:px-0 px-4">
                     <a href="#"
                         class="language text-sm text-gray-500 underline flex justify-start items-center gap-1"><i
                             class="fa-solid fa-globe"></i>ENGLISH (INTL)</a>
@@ -418,10 +418,6 @@
         const menuBtn = document.querySelectorAll('#menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const sidebar = document.getElementById('sidebar');
-
-
-        // Open Sidebar
-
 
         menuBtn.forEach(btn => {
             btn.addEventListener('click', () => {
