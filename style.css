@@ -1,18 +1,5 @@
-body{
-    font-family:  Arial, sans-serif;
+body {
+  font-family: Arial, sans-serif;
 }
 
 /* Hide footer on screens smaller than 1024px */
-@media (max-width: 1024px) {
-    .footer-respo {
-      display: none;
-    }
-  }
-  
-  /* Show footer on screens 1024px and larger */
-  @media (min-width: 1024px) {
-    .footer-respo {
-      display: grid;
-    }
-  }
-  
