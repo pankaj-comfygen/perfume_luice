@@ -20,7 +20,7 @@
 
 <body class="relative bg-gray-100 " dir="ltr" lang="en">
 
-    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 greeting ">
         <div class="flex items-center justify-between px-4 py-6 lg:px-8 border-b">
             <div class="flex items-center gap-3 md:gap-5">
                 <button id="menu-btn" class="lg:hidden text-sm">
@@ -95,44 +95,46 @@
     <!-------call us modal-->
 
     <div id="callUsModal" class="fixed inset-0 z-50 hidden">
-       
+
         <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
 
         <div
             class="absolute top-0 right-0 h-full bg-white shadow-lg w-full lg:w-1/2 transform translate-x-full transition-transform duration-300 call-us-modal-content">
             <div class="flex flex-col max-w-md mx-auto p-6 h-full space-y-10">
-                    <div class="flex justify-between items-center">
-                        <p>Contact Us</p>
-                        <button id="closeCallUsModal" class="text-gray-500 hover:text-gray-700">
-                            <i class="fa-solid fa-xmark text-xl"></i>
-                        </button>
-                    </div>
-                    <div class=" ">
-                        <p class="text-[#000] text-[13px]">Wherever you are, Louis Vuitton Client Advisors will be delighted to assist you</p>
-                    </div>
+                <div class="flex justify-between items-center">
+                    <p>Contact Us</p>
+                    <button id="closeCallUsModal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                <div class=" ">
+                    <p class="text-[#000] text-[13px]">Wherever you are, Louis Vuitton Client Advisors will be delighted
+                        to assist you</p>
+                </div>
 
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-4">
-                            <i class="bi bi-envelope"></i>
-                            <a href="mailto:client@example.com" class="text-[#000] hover:underline text-[13px]">Send an Email</a>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fa-solid fa-comment-dots text-xl text-[#000]"></i>
-                            <p class="text-gray-700 text-[13px]">Apple Message</p>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fa-brands fa-facebook-messenger text-xl text-[#000]"></i>
-                            <p class="text-gray-700 text-[13px]">Facebook Messenger</p>
-                        </div>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-4">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:client@example.com" class="text-[#000] hover:underline text-[13px]">Send an
+                            Email</a>
                     </div>
-                    <div class=" ">
-                        <h3 class=" font-medium">Need Help?</h3>
-                        <ul class="mt-4 space-y-2">
-                            <li><a href="#" class="text-[#000] hover:underline text-[13px]">FAQ</a></li>
-                            <li><a href="#" class="text-[#000] hover:underline text-[13px]">Care Service</a></li>
-                            <li><a href="#" class="text-[#000] hover:underline text-[13px]">Find a Store</a></li>
-                        </ul>
+                    <div class="flex items-center space-x-4">
+                        <i class="fa-solid fa-comment-dots text-xl text-[#000]"></i>
+                        <p class="text-gray-700 text-[13px]">Apple Message</p>
                     </div>
+                    <div class="flex items-center space-x-4">
+                        <i class="fa-brands fa-facebook-messenger text-xl text-[#000]"></i>
+                        <p class="text-gray-700 text-[13px]">Facebook Messenger</p>
+                    </div>
+                </div>
+                <div class=" ">
+                    <h3 class=" font-medium">Need Help?</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-[#000] hover:underline text-[13px]">FAQ</a></li>
+                        <li><a href="#" class="text-[#000] hover:underline text-[13px]">Care Service</a></li>
+                        <li><a href="#" class="text-[#000] hover:underline text-[13px]">Find a Store</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -245,10 +247,7 @@
     <!-- filter modal  -->
 
     <div id="filterModal" class="fixed inset-0 z-50 hidden">
-        <!-- Modal backdrop -->
         <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
-
-        <!-- Modal content -->
         <div
             class="absolute top-0 right-0 h-full bg-white shadow-lg w-full sm:w-1/2 transform translate-x-full transition-transform duration-300 ">
             <div class="max-w-md  mx-auto">
@@ -364,18 +363,13 @@
         </nav>
 
     </aside>
-
-    <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-30 hidden z-40"></div>
-
-    <!-- Main Content -->
     <main class="mt-16">
         <section class="relative">
 
             <div class=" w-full   overflow-hidden hidden md:block ">
                 <img src="image\PERFUMES_FRAGRANCE_WOF_DI3.webp" alt="her_img" />
             </div>
-
             <div class=" w-full   overflow-hidden block sm:hidden ">
                 <img src="image\PERFUMES_FRAGRANCE_WOF_2_DII_mobile.jpg" alt="her_img" />
             </div>
@@ -512,7 +506,7 @@
                         Perfumer.
                     </p>
                 </div>
-            
+
 
 
             </div>
@@ -679,7 +673,9 @@
                         Available exclusively on louisvuitton.com and in selected Louis Vuitton stores.
                     </p>
                     <p id="extraInfo" class="text-sm text-[#767676] hidden">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero a sed tempora id distinctio temporibus neque debitis inventore soluta repellendus tenetur cupiditate corrupti, veniam eius expedita ab cum dolore? Est?
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero a sed tempora id distinctio
+                        temporibus neque debitis inventore soluta repellendus tenetur cupiditate corrupti, veniam eius
+                        expedita ab cum dolore? Est?
                     </p>
                     <button id="toggleButton" class="text-xs py-3 text-[#767676] font-semibold mt-2"
                         onclick="toggleText()">
@@ -690,7 +686,7 @@
             </div>
         </div>
     </section>
-    <!-- single product details -->
+
 
     <footer class="bg-white border-t border-gray-200 py-10">
         <div class="w-full  pb-8 border-gray-200 flex justify-center border-b">
@@ -699,7 +695,7 @@
             </button>
         </div>
 
-        <footer class="footer">
+        <div class="footer">
             <div class=" border-b py-7 w-full   items-cente hidden md:block">
                 <div class="max-w-[90%] mx-auto md:px-0 px-4 text-[14px]">
                     <a href="#" class="underline">Louis Vuitton</a> -
@@ -862,7 +858,7 @@
                 <div class="flex justify-between items-center max-w-[90%] mx-auto md:px-0 px-4">
                     <a id="language-link" class="language text-sm" onclick="toggleLanguage()">
                         <i class="fa-solid fa-globe"></i>ENGLISH (INTL)
-                      </a>
+                    </a>
                     <div class="legal-links flex justify-between items-center text-[12px] gap-4">
                         <a href="#">Sitemap</a>
                         <a href="#">Legal & Privacy</a>
@@ -883,7 +879,7 @@
                 </div>
 
             </div>
-        </footer>
+        </div>
     </footer>
 
     <script>
@@ -958,7 +954,7 @@
 
 
         //// call us function ---->>>>
-      
+
         const openCallUsModalBtn = document.getElementById('openCallUsModal');
         const callUsModal = document.getElementById('callUsModal');
         const closeCallUsModalBtn = document.getElementById('closeCallUsModal');
@@ -970,13 +966,13 @@
             callUsModalContent.classList.add('translate-x-0');
         };
 
- 
+
         const closeCallUsModal = () => {
             callUsModalContent.classList.remove('translate-x-0');
             callUsModalContent.classList.add('translate-x-full');
             setTimeout(() => {
                 callUsModal.classList.add('hidden');
-            }, 300); 
+            }, 300);
         };
 
 
@@ -1045,7 +1041,7 @@
             modalContent.classList.add('translate-x-full');
             setTimeout(() => {
                 filterModal.classList.add('hidden');
-            }, 300); // Wait for transition
+            }, 300);
         });
 
 
@@ -1070,36 +1066,35 @@
         }
 
 
-        // language and rtl ltr
+        // language and rtl ltr--->>>>>>>>>>
 
 
         const content = {
-      en: {
-        greeting: "Welcome to our website!",
-        description: "This is an example of language switching between English and Arabic.",
-        language: "ENGLISH (INTL)"
-      },
-      ar: {
-        greeting: "مرحبًا بكم في موقعنا!",
-        description: "هذا مثال على التبديل بين الإنجليزية والعربية.",
-        language: "العربية"
-      }
-    };
+            en: {
+                greeting: "Welcome to our website!",
+                description: "This is an example of language switching between English and Arabic.",
+                language: "ENGLISH (INTL)"
+            },
+            ar: {
+                greeting: "مرحبًا بكم في موقعنا!",
+                description: "هذا مثال على التبديل بين الإنجليزية والعربية.",
+                language: "العربية"
+            }
+        };
 
-    function toggleLanguage() {
-      const body = document.body;
-      const currentDir = body.getAttribute("dir");
-      const isEnglish = currentDir === "ltr";
+        function toggleLanguage() {
+            const body = document.body;
+            const currentDir = body.getAttribute("dir");
+            const isEnglish = currentDir === "ltr";
 
-      // Switch direction
-      body.setAttribute("dir", isEnglish ? "rtl" : "ltr");
-      body.lang = isEnglish ? "ar" : "en";
+            body.setAttribute("dir", isEnglish ? "rtl" : "ltr");
+            body.lang = isEnglish ? "ar" : "en";
 
-      // Update content dynamically
-      document.getElementById("greeting").innerText = isEnglish ? content.ar.greeting : content.en.greeting;
-      document.getElementById("description").innerText = isEnglish ? content.ar.description : content.en.description;
-      document.getElementById("language-link").innerHTML = `<i class="fa-solid fa-globe"></i>${isEnglish ? content.ar.language : content.en.language}`;
-    }
+           
+            document.getElementById("greeting").innerText = isEnglish ? content.ar.greeting : content.en.greeting;
+            document.getElementById("description").innerText = isEnglish ? content.ar.description : content.en.description;
+            document.getElementById("language-link").innerHTML = `<i class="fa-solid fa-globe"></i>${isEnglish ? content.ar.language : content.en.language}`;
+        }
 
 
 
