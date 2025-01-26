@@ -9,6 +9,16 @@ body {
   
 }
 
+.language {
+  cursor: pointer;
+  text-decoration: underline;
+  color: gray;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
 
 #sidebar {
   background-color: #fff;

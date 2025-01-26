@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="relative bg-gray-100 " dir="ltr">
+<body class="relative bg-gray-100 " dir="ltr" lang="en">
 
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
         <div class="flex items-center justify-between px-4 py-6 lg:px-8 border-b">
@@ -46,7 +46,7 @@
                 </svg>
             </div>
 
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center  gap-4">
                 <button class="hidden lg:block text-sm" id="openCallUsModal">Call Us</button>
                 <button>
                     <i class="far fa-heart text-sm hidden lg:block"></i>
@@ -434,7 +434,7 @@
             <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
                 <source src="video\EGhuDp74IiZrfahKnNc0mD26_5.mp4" type="video/mp4" />
             </video>
-            <div class="text-overlay absolute left-10 bottom-10 text-white ">
+            <!-- <div class="text-overlay absolute left-10 bottom-10 text-white ">
                 <h2 class="text-xl f max-w-[300px] ">Louis Vuitton Perfumes x Murakami</h2>
                 <p class="mt-4 text-sm text-[rgb(0, 0, 0)]" style="line-height: 2">
                     The House's iconic fragrances, Attrape-Rêves and Imagination, are reimagined for the Louis Vuitton x
@@ -442,7 +442,7 @@
                     chromatic signatures. Embodying each captivating olfactory essence, vibrant illustrations adorn the
                     bottles while a vibrant Monogram punctuates a leather travel case for truly unique pieces.
                 </p>
-            </div>
+            </div> -->
 
         </div>
 
@@ -497,21 +497,22 @@
             </div>
         </div>
         <section>
-            <div class="video-container relative w-full h-screen">
+            <div class="video-container relative w-full h-screen relative">
                 <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
                     <source
                         src="https://vod.freecaster.com/louisvuitton/9c28c26c-7589-4121-88d0-f3d9a719796e/PaZbjHUJqR_9.mp4"
                         type="video/mp4" />
                 </video>
-                <div class="text-overlay absolute left-10 bottom-10 text-white ">
-                    <h2 class="text-xl f max-w-[300px] ">Feminine Perfumes</h2>
-                    <p class="mt-4 text-sm text-[rgb(0, 0, 0)]" style="line-height: 2">
+                <div class="absolute bottom-0 z-10 max-w-lg px-8 py-12 text-white max-w-md  ">
+                    <h2 class="text-sm font-semibold ">Feminine Perfumes</h2>
+                    <p class="mt-4 text-sm leading-6   sm:leading-7 text-[rgb(0, 0, 0)]">
                         Louis Vuitton perfumes for Women are compositions conceived like so many invitations on a
                         journey. Creations to wear on bare skin and venture out in search of oneself, compositions full
                         of vivid emotions, imagined in Grasse by Jacques Cavallier Belletrud, Louis Vuitton Master
                         Perfumer.
                     </p>
                 </div>
+            
 
 
             </div>
@@ -678,9 +679,9 @@
                         Available exclusively on louisvuitton.com and in selected Louis Vuitton stores.
                     </p>
                     <p id="extraInfo" class="text-sm text-[#767676] hidden">
-                        Additionally, explore new collections and limited editions only in flagship outlets.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero a sed tempora id distinctio temporibus neque debitis inventore soluta repellendus tenetur cupiditate corrupti, veniam eius expedita ab cum dolore? Est?
                     </p>
-                    <button id="toggleButton" class="text-xs py-6 text-[#767676] font-semibold mt-2"
+                    <button id="toggleButton" class="text-xs py-3 text-[#767676] font-semibold mt-2"
                         onclick="toggleText()">
                         View More
                     </button>
@@ -859,9 +860,9 @@
 
             <div class="border-t py-8 w-full hidden md:block">
                 <div class="flex justify-between items-center max-w-[90%] mx-auto md:px-0 px-4">
-                    <a href="#" class="language text-sm text-gray-500 underline flex justify-start items-center gap-1">
+                    <a id="language-link" class="language text-sm" onclick="toggleLanguage()">
                         <i class="fa-solid fa-globe"></i>ENGLISH (INTL)
-                    </a>
+                      </a>
                     <div class="legal-links flex justify-between items-center text-[12px] gap-4">
                         <a href="#">Sitemap</a>
                         <a href="#">Legal & Privacy</a>
@@ -1067,6 +1068,40 @@
                 toggleButton.textContent = "View More";
             }
         }
+
+
+        // language and rtl ltr
+
+
+        const content = {
+      en: {
+        greeting: "Welcome to our website!",
+        description: "This is an example of language switching between English and Arabic.",
+        language: "ENGLISH (INTL)"
+      },
+      ar: {
+        greeting: "مرحبًا بكم في موقعنا!",
+        description: "هذا مثال على التبديل بين الإنجليزية والعربية.",
+        language: "العربية"
+      }
+    };
+
+    function toggleLanguage() {
+      const body = document.body;
+      const currentDir = body.getAttribute("dir");
+      const isEnglish = currentDir === "ltr";
+
+      // Switch direction
+      body.setAttribute("dir", isEnglish ? "rtl" : "ltr");
+      body.lang = isEnglish ? "ar" : "en";
+
+      // Update content dynamically
+      document.getElementById("greeting").innerText = isEnglish ? content.ar.greeting : content.en.greeting;
+      document.getElementById("description").innerText = isEnglish ? content.ar.description : content.en.description;
+      document.getElementById("language-link").innerHTML = `<i class="fa-solid fa-globe"></i>${isEnglish ? content.ar.language : content.en.language}`;
+    }
+
+
 
 
     </script>
