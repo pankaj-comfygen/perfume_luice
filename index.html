@@ -22,22 +22,22 @@
 
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
         <div class="flex items-center justify-between px-4 py-6 lg:px-8 border-b">
-
             <div class="flex items-center gap-5">
                 <button id="menu-btn" class="lg:hidden text-sm">
                     <i class="bi bi-list text-lg"></i>
                 </button>
-                <button id="menu-btn" class=" ml-4 text-sm flex justify-start items-center gap-3">
-                    <i class="bi bi-list text-xl"></i> Menu
-                </button>
-
+                <div class=" gap-3 hidden md:block">
+                    <i class="bi bi-list text-lg cursor-pointer" id="menu-btn"></i>
+                    <button id="menu-btn" class=" text-sm  gap-3 ">
+                        Menu
+                    </button>
+                </div>
                 <div class="flex justify-start items-center gap-3">
                     <i id="search-icon" class="fa-solid fa-magnifying-glass text-sm cursor-pointer"></i>
                     <button id="search-btn" class="text-sm md:block hidden">Search</button>
                 </div>
             </div>
 
-            <!-- Middle: Logo or Image -->
             <div class="flex justify-center">
                 <svg width="220" height="30" viewBox="0 0 151 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path
@@ -46,7 +46,6 @@
                 </svg>
             </div>
 
-            <!-- Right: User Icon -->
             <div class="flex items-center space-x-4">
                 <button class="hidden lg:block text-sm">Call Us</button>
                 <button>
@@ -57,16 +56,31 @@
                 </button>
             </div>
         </div>
-        <div class="flex justify-between items-center p-4 bg-white shadow px-8">
+        <div class="flex justify-between items-center p-4 bg-white shadow px-10">
 
-            <div>
+            <div class="relative ">
                 <button id="filterButton"
                     class="flex items-center gap-2 text-black font-medium hover:text-black focus:outline-none text-sm">
-                    All Perfumes <i class="fa-solid fa-angle-down"></i>
+                    All Perfumes
+                    <i id="dropdownIcon" class="fa-solid fa-angle-down"></i>
                 </button>
+                <div id="dropdownMenu"
+                    class="absolute hidden bg-white shadow-md border rounded-b-md mt-2 w-full lg:w-[300px] -left-6 top-9 z-50">
+                    <ul class="flex flex-col text-xs p-1">
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 1</li>
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 2</li>
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 3</li>
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 4</li>
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 5</li>
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 6</li>
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 7</li>
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 8</li>
+                        <li class="px-4 py-2  text-[#000] cursor-pointer">Perfume 9</li>
+                    </ul>
+                </div>
             </div>
             <div>
-                <button
+                <button id="filterModalBtn"
                     class="flex items-center gap-2 border rounded-full px-4 py-2 text-black font-medium hover:text-black focus:outline-none text-sm">
                     Filter <img src="image\filter.png" class="w-4 h-4" />
                 </button>
@@ -77,8 +91,36 @@
 
     </header>
 
-    <!-- search modal -->
+    <!-- filter modal  -->
 
+    <div id="filterModal" class="fixed inset-0 z-50 hidden">
+        <!-- Modal backdrop -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+
+        <!-- Modal content -->
+        <div
+            class="absolute top-0 right-0 h-full bg-white shadow-lg w-full sm:w-1/2 transform translate-x-full transition-transform duration-300">
+            <div class="max-w-md  mx-auto">
+                <div class="flex justify-between items-center p-6">
+                    <p>Show filters</p>
+                    <button id="closeModalBtn" class="  text-gray-500 hover:text-gray-700">
+                        <i class="bi bi-x text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6 flex justify-between items-center">
+                    <p>Formate</p>
+                    <button id="closeModalBtn" class="  text-gray-500 hover:text-gray-700">
+                        <i class="bi bi-chevron-down text-xl"></i>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- search modal -->
+    <!-- 
     <div id="search-modal"
         class="fixed top-0 left-0 w-full h-full bg-white shadow-lg z-50 transform -translate-y-full transition-transform duration-500 ease-in-out">
         <div class="flex justify-between items-center p-4 ">
@@ -94,81 +136,90 @@
                 <i class="bi bi-x-lg"></i>
             </button>
         </div>
-      
-            <section class="">
-              
-                <div class="relative mb-6 max-w-[65%] mx-auto">
-                    <input type="text" placeholder="Search for a store"
-                        class="w-full px-6 py-4 text-[13px] border border-gray-400 rounded-full text-[#767676] focus:outline-none focus:ring-2 focus:ring-black" />
-                    <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-blcak text-[12px]">
-                        Clear
+
+        <section class="">
+
+            <div class="relative mb-6 max-w-[65%] mx-auto">
+                <input type="text" placeholder="Search for a store"
+                    class="w-full px-6 py-4 text-[13px] border border-gray-400 rounded-full text-[#767676] focus:outline-none focus:ring-2 focus:ring-black" />
+                <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-blcak text-[12px]">
+                    Clear
+                </button>
+            </div>
+
+           
+            <div class="flex justify-center space-x-4    mb-8">
+                <span class="text-[#767676] uppercase text-[0.625rem]">Trending searches</span>
+                <a href="#" class="hover:underline text-[0.625rem] ">wallet</a>
+                <a href="#" class="hover:underline text-[0.625rem]">neverfull</a>
+                <a href="#" class="hover:underline text-[0.625rem]">speedy</a>
+                <a href="#" class="hover:underline text-[0.625rem]">pochette</a>
+                <a href="#" class="hover:underline text-[0.625rem]">murakami</a>
+            </div>
+
+            <h2 class="text-[1.125rem] max-w-[95%] pb-3 mx-auto">Neverfull Inside Out </h2>
+           
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
+
+                <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676] px-2">New Reversible Neverfull</div>
+                    <div class="font-medium text-[.875rem] text-black px-2">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px] "></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
                     </button>
                 </div>
 
-                <!-- Trending Searches -->
-                <div class="flex justify-center space-x-4    mb-8">
-                    <span class="text-[#767676] uppercase text-[0.625rem]">Trending searches</span>
-                    <a href="#" class="hover:underline text-[0.625rem] ">wallet</a>
-                    <a href="#" class="hover:underline text-[0.625rem]">neverfull</a>
-                    <a href="#" class="hover:underline text-[0.625rem]">speedy</a>
-                    <a href="#" class="hover:underline text-[0.625rem]">pochette</a>
-                    <a href="#" class="hover:underline text-[0.625rem]">murakami</a>
-                </div>
+            </div>
+        </section>
 
-                <h2 class="text-[1.125rem] max-w-[95%] pb-3 mx-auto">Neverfull Inside Out </h2>
-                <!-- Product List -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
-                   
-                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
-                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png" alt="Bag" class="w-full rounded-md mb-4" />
-                        <div class="text-[.875rem] text-[#767676] px-2">New Reversible Neverfull</div>
-                        <div class="font-medium text-[.875rem] text-black px-2">Neverfull Bandoulière Inside Out MM</div>
-                        <button class="absolute top-2 right-2">
-                            <i class="far fa-heart text-[14px]"></i>
-                        </button>
-                    </div>
-                    <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
-                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
-                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
-                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
-                        <button class="absolute top-2 right-2">
-                            <i class="far fa-heart text-[14px]"></i>
-                        </button>
-                    </div>  <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
-                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png" alt="Bag" class="w-full rounded-md mb-4" />
-                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
-                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
-                        <button class="absolute top-2 right-2">
-                            <i class="far fa-heart text-[14px]"></i>
-                        </button>
-                    </div>  <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
-                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
-                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
-                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
-                        <button class="absolute top-2 right-2">
-                            <i class="far fa-heart text-[14px] "></i>
-                        </button>
-                    </div>  <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
-                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png" alt="Bag" class="w-full rounded-md mb-4" />
-                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
-                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
-                        <button class="absolute top-2 right-2">
-                            <i class="far fa-heart text-[14px]"></i>
-                        </button>
-                    </div>
-                    <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
-                        <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
-                        <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
-                        <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
-                        <button class="absolute top-2 right-2">
-                            <i class="far fa-heart text-[14px]"></i>
-                        </button>
-                    </div>
-                  
-                </div>
-            </section>
-
-    </div>
+    </div> -->
 
 
     <!-- Sidebar -->
@@ -241,46 +292,53 @@
     <!-- Main Content -->
     <main class="mt-16">
         <section class="relative">
-            <!-- Fullscreen Video -->
-            <div class="w-full  overflow-hidden">
-                <!-- <video playsinline="" src="video\EGhuDp74IiZrfahKnNc0mD26_5.mp4" muted="muted" loop="loop" tabindex="-1"
-                    aria-hidden="true" autoplay="true" class="aspect-video w-full object-cover"></video> -->
-                <img src="image\PERFUMES_FRAGRANCE_WOF_DI3.webp" alt="her_img" />
+          
+            <div class=" w-full   overflow-hidden ">
+                <img src="image\PERFUMES_FRAGRANCE_WOF_DI3.webp" alt="her_img"  />
             </div>
 
 
             <div class=" bg-white">
                 <div class="grid grid-cols-2 lg:grid-cols-4">
-                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9]  ">
-                        <img src="image/img1.png" alt="Imagination" class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold text-sm ps-4">Imagination</h2>
+                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative p-3 ">
+                        <img src="image\img1.png" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">Personalizable & refillable</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">Attrape-Rêves
+                        </div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
                     </div>
 
-                    <!-- <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
-                        <img src="image\img1.png" alt="Imagination" class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold ps-4">Imagination</h2>
-                    </div> -->
-                    <div class="text-start bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9] ">
-                        <img src="image/louis-vuitton-imagination--LP0219_PM2_Front view.avif" alt="Imagination"
-                            class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold text-sm mt-1 ps-4">Imagination</h2>
+                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative p-3 ">
+                        <img src="image\louis-vuitton-l-immensité--LP0052_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">Personalizable & refillable</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">Imagination</div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>  <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative p-3 ">
+                        <img src="image\louis-vuitton-ombre-nomade--LP0095_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">Personalizable & refillable</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">Ombre Nomade
+                        </div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>  <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative p-3 ">
+                        <img src="image\louis-vuitton-l-immensité--LP0052_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">Personalizable & refillable</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">L'Immensité
+                        </div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
                     </div>
 
-                    <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
-                        <img src="image/louis-vuitton-ombre-nomade--LP0095_PM2_Front view.avif" alt="Ombre Nomade"
-                            class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold text-sm ps-4">Ombre Nomade</h2>
-                    </div>
-                    <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
-                        <img src="image/louis-vuitton-l-immensité--LP0052_PM2_Front view.avif" alt="L'Immensité"
-                            class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold text-sm ps-4">L'Immensité</h2>
-                    </div>
+                  
+               
+
+                   
                 </div>
             </div>
         </section>
@@ -306,36 +364,45 @@
         <div class=" bg-white">
             <div class=" bg-white">
                 <div class="grid grid-cols-2 lg:grid-cols-4">
-                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9]  ">
-                        <img src="image/img1.png" alt="Imagination" class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold text-sm ps-4">Imagination</h2>
+                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative p-3 ">
+                        <img src="image\img1.png" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">Personalizable & refillable</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">Attrape-Rêves
+                        </div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
                     </div>
 
-                    <!-- <div class="text-start bg-[#E9E8E7] shadow-[8px_-8px_15px_rgba(0,0,0,0.2)] drop-shadow-sm">
-                        <img src="image\img1.png" alt="Imagination" class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold ps-4">Imagination</h2>
-                    </div> -->
-                    <div class="text-start bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9] ">
-                        <img src="image/louis-vuitton-imagination--LP0219_PM2_Front view.avif" alt="Imagination"
-                            class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold text-sm mt-1 ps-4">Imagination</h2>
+                    <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative p-3 ">
+                        <img src="image\louis-vuitton-l-immensité--LP0052_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">Personalizable & refillable</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">Imagination</div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>  <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative p-3 ">
+                        <img src="image\louis-vuitton-ombre-nomade--LP0095_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">Personalizable & refillable</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">Ombre Nomade
+                        </div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
+                    </div>  <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative p-3 ">
+                        <img src="image\louis-vuitton-l-immensité--LP0052_PM2_Front view.avif" alt="Bag" class="w-full rounded-md mb-4" />
+                        <div class="text-[.875rem] text-[#767676] px-2">Personalizable & refillable</div>
+                        <div class="font-medium text-[.875rem] text-black px-2">L'Immensité
+                        </div>
+                        <button class="absolute top-2 right-2">
+                            <i class="far fa-heart text-[14px]"></i>
+                        </button>
                     </div>
 
-                    <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
-                        <img src="image/louis-vuitton-ombre-nomade--LP0095_PM2_Front view.avif" alt="Ombre Nomade"
-                            class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold text-sm ps-4">Ombre Nomade</h2>
-                    </div>
-                    <div class="text-start   bg-gradient-to-r to-[#E1E0E0] via-[#fff] from-[#EAE9E9]  ">
-                        <img src="image/louis-vuitton-l-immensité--LP0052_PM2_Front view.avif" alt="L'Immensité"
-                            class="mx-auto">
-                        <p class="text-[#767676] text-sm mt-2 ps-4">Personalizable & refillable</p>
-                        <h2 class="font-semibold text-sm ps-4">L'Immensité</h2>
-                    </div>
+                  
+               
+
+                   
                 </div>
             </div>
         </div>
@@ -360,6 +427,64 @@
 
 
     </main>
+    <section class="single product">
+        <div class="grid grid-cols-1 md:grid-cols-2 itemcs-center w-full">
+            <div>
+                <img src="image\louis-vuitton-imagination--LP0219_PM2_Front view.avif" class="w-full h-auto" />
+            </div>
+            <div>
+                <div class=" max-w-xs mt-[20%] mx-auto ">
+                    <!-- Product Code and Favorite Icon -->
+                    <div class="flex justify-between  items-center mb-4">
+                        <span class="text-sm text-[#767676]">LP0219</span>
+                        <button>
+                            <i class="far fa-heart text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Product Details -->
+                    <div class="mb-6">
+                        <p class="text-sm text-[#767676]">Personalizable & refillable</p>
+                        <h1 class=" font-semibold mt-1">Imagination</h1>
+                    </div>
+
+                    <!-- Sizes -->
+                    <div class="mb-4">
+                        <h2 class=" font-medium">Sizes</h2>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span class="text-sm text-[#767676]">100ML - 3.4 FL.OZ</span>
+                            <i class="fas fa-chevron-right text-[#767676]"></i>
+                        </div>
+                    </div>
+
+                    <!-- Personalise -->
+                    <div class="mb-6">
+                        <h2 class=" font-medium">Personalise</h2>
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <span class="text-sm text-[#767676]">Bottle Engraving</span>
+                            <i class="fas fa-chevron-right text-[#767676]"></i>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="space-y-4">
+                        <button class="w-full bg-black text-white py-3 rounded-full text-center font-medium text-sm">
+                            Add to Cart
+                        </button>
+                        <button class="w-full border border-black py-3 rounded-full text-center font-medium text-sm">
+
+                        </button>
+                    </div>
+
+                    <!-- Note -->
+                    <p class="text-sm text-[#767676] mt-6">
+                        Available exclusively on louisvuitton.com and in selected Louis Vuitton stores.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <footer class="bg-white border-t border-gray-200 py-10">
         <div class="w-full  pb-8 border-gray-200 flex justify-center border-b">
             <button class="border border-black rounded-full w-48 py-3 text-sm font-medium hover:bg-gray-200 transition">
@@ -527,6 +652,33 @@
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
 
+        const filterButton = document.getElementById('filterButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const dropdownIcon = document.getElementById('dropdownIcon');
+
+        filterButton.addEventListener('click', () => {
+            // Toggle dropdown visibility
+            dropdownMenu.classList.toggle('hidden');
+
+            // Change icon
+            if (dropdownMenu.classList.contains('hidden')) {
+                dropdownIcon.classList.remove('fa-angle-up');
+                dropdownIcon.classList.add('fa-angle-down');
+            } else {
+                dropdownIcon.classList.remove('fa-angle-down');
+                dropdownIcon.classList.add('fa-angle-up');
+            }
+        });
+
+        // Optional: Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!filterButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+                dropdownIcon.classList.remove('fa-angle-up');
+                dropdownIcon.classList.add('fa-angle-down');
+            }
+        });
+
         menuBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 sidebar.classList.add('open');
@@ -588,6 +740,38 @@
             searchIcon.addEventListener("click", openModal);
             searchBtn.addEventListener("click", openModal);
             closeModal.addEventListener("click", closeModalHandler);
+        });
+
+        document.getElementById('view-product').addEventListener('click', () => {
+            window.location.href = 'viewProduct.html';
+        });
+
+        const filterModalBtn = document.getElementById('filterModalBtn');
+        const filterModal = document.getElementById('filterModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalContent = filterModal.querySelector('.absolute.top-0.right-0');
+
+        // Open modal
+        filterModalBtn.addEventListener('click', () => {
+            filterModal.classList.remove('hidden');
+            modalContent.classList.remove('translate-x-full');
+            modalContent.classList.add('translate-x-0');
+        });
+
+        // Close modal
+        closeModalBtn.addEventListener('click', () => {
+            modalContent.classList.remove('translate-x-0');
+            modalContent.classList.add('translate-x-full');
+            setTimeout(() => {
+                filterModal.classList.add('hidden');
+            }, 300); // Wait for transition
+        });
+
+        // Close modal on backdrop click
+        filterModal.addEventListener('click', (event) => {
+            if (event.target === filterModal) {
+                closeModalBtn.click();
+            }
         });
 
 

@@ -36,7 +36,7 @@ body {
 /* Dimming Other List Items */
 #sidebar li:hover ~ li,
 #sidebar li:hover ~ li + li {
-    color: gray; 
+    color: #767676; 
 }
 
 /* Underline Animation */
