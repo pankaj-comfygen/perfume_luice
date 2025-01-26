@@ -32,9 +32,13 @@
                         Menu
                     </button>
                 </div>
-                <div class="flex justify-start items-center gap-3">
+                <!-- <div class="flex justify-start items-center gap-3">
                     <i id="search-icon" class="fa-solid fa-magnifying-glass text-sm cursor-pointer"></i>
                     <button id="search-btn" class="text-sm md:block hidden">Search</button>
+                </div> -->
+                <div class="flex justify-start items-center gap-3">
+                    <i id="searchModalIcon" class="fa-solid fa-magnifying-glass text-sm cursor-pointer"></i>
+                    <button id="searchModalBtn" class="text-sm md:block hidden">Search</button>
                 </div>
             </div>
 
@@ -91,6 +95,111 @@
 
     </header>
 
+
+    <!-- search filters -->
+    <div id="searchFullScreenModal" class="fixed inset-0 z-50 hidden">
+       
+        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+
+        <!-- Modal content -->
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-white transform -translate-y-full transition-transform duration-300 search-modal-content">
+            <div class="flex flex-col w-full mx-auto p-6 ">
+                <div class="flex justify-between items-center w-full">
+                    <div class="flex justify-center w-full">
+                        <svg width="220" height="30" viewBox="0 0 151 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path
+                                d="M67.637.293l3.816 9.205L75.269.293h2.725L71.746 15.39l-.293.294-.294-.294L64.911.293h2.726zm-13.712 0c1.468 0 2.86.767 3.627 1.887l-1.467 1.468h-.462c-.304-.65-.973-1.048-1.698-1.048-.863 0-1.672.71-1.72 1.614-.035.68.277 1.105.84 1.468.606.391.854.554 1.677 1.006.897.493 3.166 1.46 3.166 4.005 0 2.509-2.097 4.843-4.802 4.843-.347 0-.976-.039-1.446-.147-1.325-.321-2.129-.822-2.998-1.845l1.887-1.929.65.545c.293.23.937.693 1.55.776 1.246.169 2.082-.655 2.244-1.468.129-.642-.034-1.6-1.069-2.096 0 0-1.866-1.037-2.684-1.51-.833-.482-1.719-1.798-1.719-3.375 0-1.174.538-2.311 1.405-3.103.67-.614 1.589-1.09 3.019-1.09zM138.67 0l9.77 9.77V.587l.294-.294h1.929l.294.294v14.802h-.462l-9.602-9.602v9.309l-.294.293h-1.929l-.293-.293V.293L138.67 0zm-28.807.293v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zm9.225 0v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zM2.516.293v12.58h5.032v2.516H0V.587L.293.293h2.223zm14.257 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm111.54 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm-98.415 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.929l.293.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zm37.446 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.928l.294.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zM16.772 2.81a5.032 5.032 0 10.001 10.065 5.032 5.032 0 000-10.065zm111.541 0a5.032 5.032 0 100 10.065 5.032 5.032 0 000-10.065z"
+                                fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <button id="closeSearchFullScreenModalBtn" class="text-gray-500 hover:text-gray-700 bg-white rounded-full p-2">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+              
+            </div>
+            <div class="relative mb-6 max-w-[65%] mx-auto">
+                <input type="text" placeholder="Search for a store"
+                    class="w-full px-6 py-4 text-[13px] border border-gray-400 rounded-full text-[#767676] focus:outline-none focus:ring-2 focus:ring-black" />
+                <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-blcak text-[12px]">
+                    Clear
+                </button>
+            </div>
+
+           
+            <div class="flex justify-center space-x-4    mb-8">
+                <span class="text-[#767676] uppercase text-[0.625rem]">Trending searches</span>
+                <a href="#" class="hover:underline text-[0.625rem] ">wallet</a>
+                <a href="#" class="hover:underline text-[0.625rem]">neverfull</a>
+                <a href="#" class="hover:underline text-[0.625rem]">speedy</a>
+                <a href="#" class="hover:underline text-[0.625rem]">pochette</a>
+                <a href="#" class="hover:underline text-[0.625rem]">murakami</a>
+            </div>
+
+            <h2 class="text-[1.125rem] max-w-[95%] pb-3 mx-auto">Neverfull Inside Out </h2>
+           
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 ">
+
+                <div class="text-start  bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676] px-2">New Reversible Neverfull</div>
+                    <div class="font-medium text-[.875rem] text-black px-2">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px] "></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-mm--M12096_PM2_Front view.png"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+                <div class="text-center bg-gradient-to-r to-[#DFDFDE] via-[#fff] from-[#EAE9E9] relative">
+                    <img src="image\louis-vuitton-neverfull-bandouliere-inside-out-bb--M12099_PM2_Front view.avif"
+                        alt="Bag" class="w-full rounded-md mb-4" />
+                    <div class="text-[.875rem] text-[#767676]">New Reversible Neverfull</div>
+                    <div class="font-medium text-black">Neverfull Bandoulière Inside Out MM</div>
+                    <button class="absolute top-2 right-2">
+                        <i class="far fa-heart text-[14px]"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- filter modal  -->
 
     <div id="filterModal" class="fixed inset-0 z-50 hidden">
@@ -104,6 +213,33 @@
                 <div class="flex justify-between items-center p-6">
                     <p>Show filters</p>
                     <button id="closeModalBtn" class="  text-gray-500 hover:text-gray-700">
+                        <i class="bi bi-x text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6 flex justify-between items-center">
+                    <p>Formate</p>
+                    <button id="closeModalBtn" class="  text-gray-500 hover:text-gray-700">
+                        <i class="bi bi-chevron-down text-xl"></i>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="search-modal" class="fixed inset-0 z-50 hidden">
+
+        <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"></div>
+
+        <!-- Modal content -->
+        <div
+            class="absolute top-0 right-0 h-full bg-white shadow-lg w-full sm:w-1/2 transform translate-x-full transition-transform duration-300 ">
+            <div class="max-w-md  mx-auto">
+                <div class="flex justify-between items-center p-6">
+                    <p>show the </p>
+                    <button id="closeSearchModalBtn" class="  text-gray-500 hover:text-gray-700">
                         <i class="bi bi-x text-xl"></i>
                     </button>
                 </div>
@@ -677,13 +813,13 @@
                     <div class="space-y-3 ">
                         <div class="flex justify-center ">
                             <svg width="151" height="16" viewBox="0 0 151 16" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M67.637.293l3.816 9.205L75.269.293h2.725L71.746 15.39l-.293.294-.294-.294L64.911.293h2.726zm-13.712 0c1.468 0 2.86.767 3.627 1.887l-1.467 1.468h-.462c-.304-.65-.973-1.048-1.698-1.048-.863 0-1.672.71-1.72 1.614-.035.68.277 1.105.84 1.468.606.391.854.554 1.677 1.006.897.493 3.166 1.46 3.166 4.005 0 2.509-2.097 4.843-4.802 4.843-.347 0-.976-.039-1.446-.147-1.325-.321-2.129-.822-2.998-1.845l1.887-1.929.65.545c.293.23.937.693 1.55.776 1.246.169 2.082-.655 2.244-1.468.129-.642-.034-1.6-1.069-2.096 0 0-1.866-1.037-2.684-1.51-.833-.482-1.719-1.798-1.719-3.375 0-1.174.538-2.311 1.405-3.103.67-.614 1.589-1.09 3.019-1.09zM138.67 0l9.77 9.77V.587l.294-.294h1.929l.294.294v14.802h-.462l-9.602-9.602v9.309l-.294.293h-1.929l-.293-.293V.293L138.67 0zm-28.807.293v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zm9.225 0v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zM2.516.293v12.58h5.032v2.516H0V.587L.293.293h2.223zm14.257 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm111.54 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm-98.415 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.929l.293.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zm37.446 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.928l.294.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zM16.772 2.81a5.032 5.032 0 10.001 10.065 5.032 5.032 0 000-10.065zm111.541 0a5.032 5.032 0 100 10.065 5.032 5.032 0 000-10.065z"
-                                fill-rule="evenodd"></path>
-                        </svg>
+                                aria-hidden="true">
+                                <path
+                                    d="M67.637.293l3.816 9.205L75.269.293h2.725L71.746 15.39l-.293.294-.294-.294L64.911.293h2.726zm-13.712 0c1.468 0 2.86.767 3.627 1.887l-1.467 1.468h-.462c-.304-.65-.973-1.048-1.698-1.048-.863 0-1.672.71-1.72 1.614-.035.68.277 1.105.84 1.468.606.391.854.554 1.677 1.006.897.493 3.166 1.46 3.166 4.005 0 2.509-2.097 4.843-4.802 4.843-.347 0-.976-.039-1.446-.147-1.325-.321-2.129-.822-2.998-1.845l1.887-1.929.65.545c.293.23.937.693 1.55.776 1.246.169 2.082-.655 2.244-1.468.129-.642-.034-1.6-1.069-2.096 0 0-1.866-1.037-2.684-1.51-.833-.482-1.719-1.798-1.719-3.375 0-1.174.538-2.311 1.405-3.103.67-.614 1.589-1.09 3.019-1.09zM138.67 0l9.77 9.77V.587l.294-.294h1.929l.294.294v14.802h-.462l-9.602-9.602v9.309l-.294.293h-1.929l-.293-.293V.293L138.67 0zm-28.807.293v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zm9.225 0v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zM2.516.293v12.58h5.032v2.516H0V.587L.293.293h2.223zm14.257 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm111.54 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm-98.415 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.929l.293.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zm37.446 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.928l.294.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zM16.772 2.81a5.032 5.032 0 10.001 10.065 5.032 5.032 0 000-10.065zm111.541 0a5.032 5.032 0 100 10.065 5.032 5.032 0 000-10.065z"
+                                    fill-rule="evenodd"></path>
+                            </svg>
                         </div>
-                        
+
                         <div class=" ">
 
                             <a href="#" class="underline">Perfumes - Collections</a> -
@@ -760,47 +896,43 @@
 
 
             <div class="border-t py-8 w-full flex justify-center md:hidden">
-                <div class="flex justify-between md:flex-row flex-col space-y-4 items-center max-w-[90%] mx-auto md:px-0 px-4">
-                  <div class="legal-links flex justify-between items-center text-[12px] gap-4">
-                    <a href="#">Sitemap</a>
-                    <a href="#">Legal & Privacy</a>
-                    <a href="#">Cookies</a>
-                  </div>
-                  <a
-                    href="#"
-                    class="language text-sm text-gray-500 underline flex justify-center items-center gap-1"
-                  >
-                    <i class="fa-solid fa-globe"></i>ENGLISH (INTL)
-                  </a>
+                <div
+                    class="flex justify-between md:flex-row flex-col space-y-4 items-center max-w-[90%] mx-auto md:px-0 px-4">
+                    <div class="legal-links flex justify-between items-center text-[12px] gap-4">
+                        <a href="#">Sitemap</a>
+                        <a href="#">Legal & Privacy</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                    <a href="#" class="language text-sm text-gray-500 underline flex justify-center items-center gap-1">
+                        <i class="fa-solid fa-globe"></i>ENGLISH (INTL)
+                    </a>
                 </div>
-              </div>
-              
-              <div class="border-t py-8 w-full hidden md:block">
+            </div>
+
+            <div class="border-t py-8 w-full hidden md:block">
                 <div class="flex justify-between items-center max-w-[90%] mx-auto md:px-0 px-4">
-                  <a
-                    href="#"
-                    class="language text-sm text-gray-500 underline flex justify-start items-center gap-1"
-                  >
-                    <i class="fa-solid fa-globe"></i>ENGLISH (INTL)
-                  </a>
-                  <div class="legal-links flex justify-between items-center text-[12px] gap-4">
-                    <a href="#">Sitemap</a>
-                    <a href="#">Legal & Privacy</a>
-                    <a href="#">Cookies</a>
-                  </div>
+                    <a href="#" class="language text-sm text-gray-500 underline flex justify-start items-center gap-1">
+                        <i class="fa-solid fa-globe"></i>ENGLISH (INTL)
+                    </a>
+                    <div class="legal-links flex justify-between items-center text-[12px] gap-4">
+                        <a href="#">Sitemap</a>
+                        <a href="#">Legal & Privacy</a>
+                        <a href="#">Cookies</a>
+                    </div>
                 </div>
-              </div>
-              
+            </div>
+
 
             <div class="max-w-7xl mx-auto flex justify-center items-cente p-y-0 md:py-6 ">
                 <div class="hidden md:block">
-                    <svg width="151" height="16" viewBox="0 0 151 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg width="151" height="16" viewBox="0 0 151 16" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
                         <path
                             d="M67.637.293l3.816 9.205L75.269.293h2.725L71.746 15.39l-.293.294-.294-.294L64.911.293h2.726zm-13.712 0c1.468 0 2.86.767 3.627 1.887l-1.467 1.468h-.462c-.304-.65-.973-1.048-1.698-1.048-.863 0-1.672.71-1.72 1.614-.035.68.277 1.105.84 1.468.606.391.854.554 1.677 1.006.897.493 3.166 1.46 3.166 4.005 0 2.509-2.097 4.843-4.802 4.843-.347 0-.976-.039-1.446-.147-1.325-.321-2.129-.822-2.998-1.845l1.887-1.929.65.545c.293.23.937.693 1.55.776 1.246.169 2.082-.655 2.244-1.468.129-.642-.034-1.6-1.069-2.096 0 0-1.866-1.037-2.684-1.51-.833-.482-1.719-1.798-1.719-3.375 0-1.174.538-2.311 1.405-3.103.67-.614 1.589-1.09 3.019-1.09zM138.67 0l9.77 9.77V.587l.294-.294h1.929l.294.294v14.802h-.462l-9.602-9.602v9.309l-.294.293h-1.929l-.293-.293V.293L138.67 0zm-28.807.293v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zm9.225 0v2.223l-.294.293h-2.222v12.58h-2.516V2.809h-2.516V.587l.294-.294h7.254zM2.516.293v12.58h5.032v2.516H0V.587L.293.293h2.223zm14.257 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm111.54 0a7.548 7.548 0 110 15.096 7.548 7.548 0 010-15.096zm-98.415 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.929l.293.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zm37.446 0l.293.294v9.77a2.516 2.516 0 005.032 0V.587l.294-.294h1.928l.294.294v9.77a5.032 5.032 0 01-10.064 0V.587l.294-.294h1.929zm15.389 0v14.803l-.294.293h-2.222V.587l.293-.294h2.223zM16.772 2.81a5.032 5.032 0 10.001 10.065 5.032 5.032 0 000-10.065zm111.541 0a5.032 5.032 0 100 10.065 5.032 5.032 0 000-10.065z"
                             fill-rule="evenodd"></path>
                     </svg>
                 </div>
-              
+
             </div>
         </footer>
     </footer>
@@ -878,60 +1010,71 @@
 
         ///////----->>>> search function
 
+        // Variables for the search modal
+        const searchModalIcon = document.getElementById('searchModalIcon');
+        const searchModalBtn = document.getElementById('searchModalBtn');
+        const searchFullScreenModal = document.getElementById('searchFullScreenModal');
+        const closeSearchFullScreenModalBtn = document.getElementById('closeSearchFullScreenModalBtn');
+        const searchModalContent = searchFullScreenModal.querySelector('.search-modal-content');
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const searchIcon = document.getElementById("search-icon");
-            const searchBtn = document.getElementById("search-btn");
-            const modal = document.getElementById("search-modal");
-            const closeModal = document.getElementById("close-modal");
+        // Function to open the search modal
+        const openSearchFullScreenModal = () => {
+            searchFullScreenModal.classList.remove('hidden');
+            searchModalContent.classList.remove('-translate-y-full');
+            searchModalContent.classList.add('translate-y-0');
+        };
 
-            // Open modal on search icon or text click
-            const openModal = () => {
-                modal.classList.remove("-translate-y-full");
-                modal.classList.add("translate-y-0");
-            };
+        // Function to close the search modal
+        const closeSearchFullScreenModal = () => {
+            searchModalContent.classList.remove('translate-y-0');
+            searchModalContent.classList.add('-translate-y-full');
+            setTimeout(() => {
+                searchFullScreenModal.classList.add('hidden');
+            }, 300); // Wait for transition
+        };
 
-            // Close modal on close button click
-            const closeModalHandler = () => {
-                modal.classList.remove("translate-y-0");
-                modal.classList.add("-translate-y-full");
-            };
+        // Attach event listeners
+        searchModalIcon.addEventListener('click', openSearchFullScreenModal);
+        searchModalBtn.addEventListener('click', openSearchFullScreenModal);
+        closeSearchFullScreenModalBtn.addEventListener('click', closeSearchFullScreenModal);
 
-            // Add event listeners
-            searchIcon.addEventListener("click", openModal);
-            searchBtn.addEventListener("click", openModal);
-            closeModal.addEventListener("click", closeModalHandler);
+        // Close the search modal on backdrop click
+        searchFullScreenModal.addEventListener('click', (event) => {
+            if (event.target === searchFullScreenModal) {
+                closeSearchFullScreenModal();
+            }
         });
 
+
         ///////----->>>> filter function
-        
+
         const filterModalBtn = document.getElementById('filterModalBtn');
-const filterModal = document.getElementById('filterModal');
-const closeModalBtn = document.getElementById('closeModalBtn');
-const modalContent = filterModal.querySelector('.absolute.top-0.right-0');
+        const filterModal = document.getElementById('filterModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalContent = filterModal.querySelector('.absolute.top-0.right-0');
 
-// Open modal
-filterModalBtn.addEventListener('click', () => {
-    filterModal.classList.remove('hidden');
-    modalContent.classList.remove('translate-x-full');
-    modalContent.classList.add('translate-x-0');
-});
+        // Open modal
+        filterModalBtn.addEventListener('click', () => {
+            filterModal.classList.remove('hidden');
+            modalContent.classList.remove('translate-x-full');
+            modalContent.classList.add('translate-x-0');
+        });
 
-// Close modal
-closeModalBtn.addEventListener('click', () => {
-    modalContent.classList.remove('translate-x-0');
-    modalContent.classList.add('translate-x-full');
-    setTimeout(() => {
-        filterModal.classList.add('hidden');
-    }, 300); // Wait for transition
-});
+        // Close modal
+        closeModalBtn.addEventListener('click', () => {
+            modalContent.classList.remove('translate-x-0');
+            modalContent.classList.add('translate-x-full');
+            setTimeout(() => {
+                filterModal.classList.add('hidden');
+            }, 300); // Wait for transition
+        });
 
-// Close modal on backdrop click
-filterModal.addEventListener('click', (event) => {
-    if (event.target === filterModal) {
-        closeModalBtn.click();
-    }
-});
+        // Close modal on backdrop click
+        filterModal.addEventListener('click', (event) => {
+            if (event.target === filterModal) {
+                closeModalBtn.click();
+            }
+        });
 
 
         function toggleText() {
