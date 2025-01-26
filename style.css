@@ -1,9 +1,11 @@
 body {
+  color: inherit;
+  color: #000;
   font-family: "Louis Vuitton Web", "Louis Vuitton Web Fallback", "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  color: #000000;
-  font-size: 10px;
-  font-weight: 100; /* Use 100 for the thinnest weight */
-  letter-spacing: 0.5px; /* Optional: Add slight letter spacing for a lighter feel */
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: .025rem;
+  line-height: 1.5rem;
 }
 
 
